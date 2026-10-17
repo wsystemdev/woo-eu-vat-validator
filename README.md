@@ -1,4 +1,4 @@
-# EU VAT Number Validator by W System (WooCommerce)
+# W System VIES Check (WordPress plugin for WooCommerce)
 
 Free WordPress plugin: validates EU VAT numbers at WooCommerce checkout via VIES (W System API, free 20/day, optional paid key),
 applies B2B reverse charge for valid cross-border EU numbers, and stores the VIES consultation number in order meta
@@ -6,5 +6,5 @@ applies B2B reverse charge for valid cross-border EU numbers, and stores the VIE
 
 See `readme.txt` for the wordpress.org description. GPLv2 or later.
 
-Build the wordpress.org ZIP: `./build-zip.sh` → `dist/eu-vat-validator-wsystem.zip`.
+Build the wordpress.org ZIP: `./build-zip.sh` → `dist/w-system-vies-check.zip`.
 Coding standards: `phpcs --standard=WordPress .` (clean).
