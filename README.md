@@ -8,3 +8,6 @@ See `readme.txt` for the wordpress.org description. GPLv2 or later.
 
 Build the wordpress.org ZIP: `./build-zip.sh` → `dist/w-system-eu-vat-check.zip`.
 Coding standards: `phpcs --standard=WordPress .` (clean).
+
+Guide and install steps: https://wsystem.dev/woocommerce-eu-vat-number-validation
+Download: https://github.com/wsystemdev/woo-eu-vat-validator/releases/latest/download/w-system-eu-vat-check.zip
