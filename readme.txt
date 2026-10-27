@@ -1,4 +1,4 @@
-=== W System VIES Check ===
+=== W System EU VAT Check for WooCommerce ===
 Contributors: wsystemdev
 Tags: vat, vies, eu vat, reverse charge, b2b
 Requires at least: 6.2
@@ -12,7 +12,7 @@ Check EU VAT numbers in VIES at WooCommerce checkout, apply B2B reverse charge a
 
 == Description ==
 
-W System VIES Check adds an "EU VAT number" field to the WooCommerce checkout and checks it against the European Commission's VIES service through the W System API.
+W System EU VAT Check for WooCommerce adds an "EU VAT number" field to the WooCommerce checkout and checks it against the European Commission's VIES service through the W System API.
 
 * **Live VIES validation** for all 27 EU member states and Northern Ireland (XI). Greek numbers may be entered as GR or EL.
 * **B2B reverse charge:** when the VAT number is valid and from an EU country other than your store base country, VAT is removed from the order (zero-rated intra-community supply).
@@ -28,7 +28,7 @@ This plugin is not legal or tax advice. Check the VAT rules that apply to your b
 
 == External services ==
 
-This plugin connects to the W System API (https://api.wsystem.dev), operated by W System Hungary Kft., Budapest, Hungary. The API looks up VAT numbers in the European Commission VIES service. Without this service the plugin cannot validate VAT numbers.
+This plugin connects to the W System API (https://api.wsystem.dev), operated by W System (legal entity details: https://wsystem.dev/imprint). The API looks up VAT numbers in the European Commission VIES service. Without this service the plugin cannot validate VAT numbers.
 
 * **What is sent:** the EU VAT number the customer types into the checkout field; your own store VAT number (as "requester") if you entered one in the settings, so that VIES returns a consultation number; and the API key, as the X-API-Key header, only if you entered one. As with any HTTP request, the API also sees your server's IP address, which it uses to count the free daily quota. No names, addresses, emails, order contents or other customer data are sent.
 * **When it is sent:** only when a VAT number is entered at checkout: each time the checkout totals are refreshed with a VAT number in the field, and when the order is placed. Results are cached on your site for 24 hours per VAT number, so repeated checks of the same number are not sent again. Nothing is sent from the admin area, on activation, or on other pages.

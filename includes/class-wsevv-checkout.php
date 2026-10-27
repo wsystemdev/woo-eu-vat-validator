@@ -37,12 +37,12 @@ class WSEVV_Checkout {
 	 */
 	public static function add_field( $fields ) {
 		$fields[ self::FIELD ] = array(
-			'label'       => __( 'EU VAT number', 'w-system-vies-check' ),
-			'placeholder' => __( 'e.g. DE123456789', 'w-system-vies-check' ),
+			'label'       => __( 'EU VAT number', 'w-system-eu-vat-check' ),
+			'placeholder' => __( 'e.g. DE123456789', 'w-system-eu-vat-check' ),
 			'required'    => 'yes' === WSEVV_Settings::get( 'required' ),
 			'class'       => array( 'form-row-wide', 'update_totals_on_change' ),
 			'priority'    => 35,
-			'description' => __( 'Businesses in another EU country: enter a valid VAT number to buy without VAT (reverse charge).', 'w-system-vies-check' ),
+			'description' => __( 'Businesses in another EU country: enter a valid VAT number to buy without VAT (reverse charge).', 'w-system-eu-vat-check' ),
 		);
 		return $fields;
 	}
@@ -77,11 +77,11 @@ class WSEVV_Checkout {
 		}
 		$vat_country = WSEVV_API::country_of( $vat );
 		if ( '' === $vat_country ) {
-			$out['error'] = __( 'Please enter an EU VAT number starting with the country code (for example DE123456789).', 'w-system-vies-check' );
+			$out['error'] = __( 'Please enter an EU VAT number starting with the country code (for example DE123456789).', 'w-system-eu-vat-check' );
 			return $out;
 		}
 		if ( $country && $vat_country !== $country ) {
-			$out['error'] = __( 'The VAT number country does not match your billing country.', 'w-system-vies-check' );
+			$out['error'] = __( 'The VAT number country does not match your billing country.', 'w-system-eu-vat-check' );
 			return $out;
 		}
 		$result        = WSEVV_API::verify( $vat );
@@ -92,12 +92,12 @@ class WSEVV_Checkout {
 			$out['exempt'] = $reverse && $cross_border;
 		} elseif ( false === $result['valid'] ) {
 			if ( 'block' === WSEVV_Settings::get( 'on_invalid' ) ) {
-				$out['error'] = __( 'The EU VAT number is not valid according to VIES. Please check it, or remove it to buy with VAT.', 'w-system-vies-check' );
+				$out['error'] = __( 'The EU VAT number is not valid according to VIES. Please check it, or remove it to buy with VAT.', 'w-system-eu-vat-check' );
 			}
 		} else {
 			$mode = WSEVV_Settings::get( 'on_unavailable' );
 			if ( 'block' === $mode ) {
-				$out['error'] = __( 'The EU VAT validation service is temporarily unavailable. Please try again in a few minutes.', 'w-system-vies-check' );
+				$out['error'] = __( 'The EU VAT validation service is temporarily unavailable. Please try again in a few minutes.', 'w-system-eu-vat-check' );
 			} elseif ( 'exempt' === $mode ) {
 				$out['exempt'] = $reverse && $cross_border;
 			}
@@ -177,11 +177,11 @@ class WSEVV_Checkout {
 		$order->add_order_note(
 			sprintf(
 				/* translators: 1: VAT number, 2: VIES status, 3: consultation number, 4: yes/no */
-				__( 'EU VAT number %1$s checked in VIES: %2$s. Consultation number: %3$s. Reverse charge: %4$s.', 'w-system-vies-check' ),
+				__( 'EU VAT number %1$s checked in VIES: %2$s. Consultation number: %3$s. Reverse charge: %4$s.', 'w-system-eu-vat-check' ),
 				$vat,
 				$order->get_meta( '_wsevv_status' ) ? $order->get_meta( '_wsevv_status' ) : '-',
 				$cn ? $cn : '-',
-				'yes' === $order->get_meta( '_wsevv_reverse_charge' ) ? __( 'yes', 'w-system-vies-check' ) : __( 'no', 'w-system-vies-check' )
+				'yes' === $order->get_meta( '_wsevv_reverse_charge' ) ? __( 'yes', 'w-system-eu-vat-check' ) : __( 'no', 'w-system-eu-vat-check' )
 			)
 		);
 	}
@@ -196,14 +196,14 @@ class WSEVV_Checkout {
 		if ( ! $vat ) {
 			return;
 		}
-		echo '<p><strong>' . esc_html__( 'EU VAT number', 'w-system-vies-check' ) . ':</strong> ' . esc_html( $vat );
+		echo '<p><strong>' . esc_html__( 'EU VAT number', 'w-system-eu-vat-check' ) . ':</strong> ' . esc_html( $vat );
 		echo ' (' . esc_html( $order->get_meta( '_wsevv_status' ) ) . ')';
 		$cn = $order->get_meta( '_wsevv_consultation_number' );
 		if ( $cn ) {
-			echo '<br>' . esc_html__( 'VIES consultation number', 'w-system-vies-check' ) . ': ' . esc_html( $cn );
+			echo '<br>' . esc_html__( 'VIES consultation number', 'w-system-eu-vat-check' ) . ': ' . esc_html( $cn );
 		}
 		if ( 'yes' === $order->get_meta( '_wsevv_reverse_charge' ) ) {
-			echo '<br>' . esc_html__( 'Reverse charge: VAT to be accounted for by the recipient (Art. 196 Council Directive 2006/112/EC).', 'w-system-vies-check' );
+			echo '<br>' . esc_html__( 'Reverse charge: VAT to be accounted for by the recipient (Art. 196 Council Directive 2006/112/EC).', 'w-system-eu-vat-check' );
 		}
 		echo '</p>';
 	}

@@ -45,7 +45,7 @@ class WSEVV_Settings {
 	 * @return array
 	 */
 	public static function section( $sections ) {
-		$sections['wsevv'] = __( 'EU VAT validator', 'w-system-vies-check' );
+		$sections['wsevv'] = __( 'EU VAT validator', 'w-system-eu-vat-check' );
 		return $sections;
 	}
 
@@ -62,56 +62,56 @@ class WSEVV_Settings {
 		}
 		return array(
 			array(
-				'title' => __( 'W System VIES Check', 'w-system-vies-check' ),
+				'title' => __( 'W System EU VAT Check for WooCommerce', 'w-system-eu-vat-check' ),
 				'type'  => 'title',
-				'desc'  => __( 'VAT numbers are checked against the official EU VIES service through the W System API. Every feature of this plugin works without an API key: the free tier of the W System API allows 20 checks per day per server IP address, and results are cached for 24 hours. An API key only raises that external service quota.', 'w-system-vies-check' ),
+				'desc'  => __( 'VAT numbers are checked against the official EU VIES service through the W System API. Every feature of this plugin works without an API key: the free tier of the W System API allows 20 checks per day per server IP address, and results are cached for 24 hours. An API key only raises that external service quota.', 'w-system-eu-vat-check' ),
 				'id'    => 'wsevv_title',
 			),
 			array(
-				'title'    => __( 'API key (optional)', 'w-system-vies-check' ),
+				'title'    => __( 'API key (optional)', 'w-system-eu-vat-check' ),
 				'id'       => 'wsevv_api_key',
 				'type'     => 'password',
-				'desc_tip' => __( 'Only needed for more than 20 checks per day. Sent to api.wsystem.dev as the X-API-Key header. Leave empty to use the free tier; no plugin feature depends on it.', 'w-system-vies-check' ),
+				'desc_tip' => __( 'Only needed for more than 20 checks per day. Sent to api.wsystem.dev as the X-API-Key header. Leave empty to use the free tier; no plugin feature depends on it.', 'w-system-eu-vat-check' ),
 			),
 			array(
-				'title'    => __( 'Your EU VAT number', 'w-system-vies-check' ),
+				'title'    => __( 'Your EU VAT number', 'w-system-eu-vat-check' ),
 				'id'       => 'wsevv_requester',
 				'type'     => 'text',
-				'desc_tip' => __( 'Your own VAT number, so VIES returns a consultation number (proof of the check) that is saved on each order.', 'w-system-vies-check' ),
+				'desc_tip' => __( 'Your own VAT number, so VIES returns a consultation number (proof of the check) that is saved on each order.', 'w-system-eu-vat-check' ),
 			),
 			array(
-				'title'   => __( 'Reverse charge', 'w-system-vies-check' ),
+				'title'   => __( 'Reverse charge', 'w-system-eu-vat-check' ),
 				'id'      => 'wsevv_reverse_charge',
 				'type'    => 'checkbox',
 				'default' => 'yes',
-				'desc'    => __( 'Remove VAT when the VAT number is valid and from an EU country other than your store base country.', 'w-system-vies-check' ),
+				'desc'    => __( 'Remove VAT when the VAT number is valid and from an EU country other than your store base country.', 'w-system-eu-vat-check' ),
 			),
 			array(
-				'title'   => __( 'Require VAT number', 'w-system-vies-check' ),
+				'title'   => __( 'Require VAT number', 'w-system-eu-vat-check' ),
 				'id'      => 'wsevv_required',
 				'type'    => 'checkbox',
 				'default' => 'no',
 			),
 			array(
-				'title'   => __( 'Invalid VAT number', 'w-system-vies-check' ),
+				'title'   => __( 'Invalid VAT number', 'w-system-eu-vat-check' ),
 				'id'      => 'wsevv_on_invalid',
 				'type'    => 'select',
 				'default' => 'block',
 				'options' => array(
-					'block'  => __( 'Block checkout with an error', 'w-system-vies-check' ),
-					'charge' => __( 'Allow checkout and charge VAT', 'w-system-vies-check' ),
+					'block'  => __( 'Block checkout with an error', 'w-system-eu-vat-check' ),
+					'charge' => __( 'Allow checkout and charge VAT', 'w-system-eu-vat-check' ),
 				),
 			),
 			array(
-				'title'   => __( 'VIES unavailable', 'w-system-vies-check' ),
+				'title'   => __( 'VIES unavailable', 'w-system-eu-vat-check' ),
 				'id'      => 'wsevv_on_unavailable',
 				'type'    => 'select',
 				'default' => 'charge',
-				'desc'    => __( 'When the member state service is down or the daily quota is used up.', 'w-system-vies-check' ),
+				'desc'    => __( 'When the member state service is down or the daily quota is used up.', 'w-system-eu-vat-check' ),
 				'options' => array(
-					'charge' => __( 'Allow checkout and charge VAT', 'w-system-vies-check' ),
-					'exempt' => __( 'Allow checkout and apply reverse charge (verify later)', 'w-system-vies-check' ),
-					'block'  => __( 'Block checkout', 'w-system-vies-check' ),
+					'charge' => __( 'Allow checkout and charge VAT', 'w-system-eu-vat-check' ),
+					'exempt' => __( 'Allow checkout and apply reverse charge (verify later)', 'w-system-eu-vat-check' ),
+					'block'  => __( 'Block checkout', 'w-system-eu-vat-check' ),
 				),
 			),
 			array(
