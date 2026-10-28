@@ -63,6 +63,12 @@ You choose: charge VAT, apply reverse charge and verify later, or block checkout
 
 Yes, since version 1.1. The VAT number field appears in the address form of the block Checkout, the totals update without VAT as soon as a valid cross-border number is entered, and invalid or mismatched numbers stop the order with a clear message. The classic (shortcode) checkout keeps working as before. In the block Checkout the field shows in the shipping address too when "use same address for billing" is ticked; the billing value is the one that is checked.
 
+== Screenshots ==
+
+1. Block-based Checkout: the optional EU VAT number field. A valid German VAT number from a business buyer removes the VAT (total EUR 100.00 instead of EUR 119.00).
+2. Order screen: the VAT number, its VIES status, the VIES consultation number and the reverse-charge note are stored with the order.
+3. Settings under WooCommerce > Settings > Tax > EU VAT validator. Works without an API key on the free tier.
+
 == Changelog ==
 
 = 1.1.0 =
