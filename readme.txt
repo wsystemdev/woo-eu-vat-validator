@@ -4,7 +4,7 @@ Tags: vat, vies, eu vat, reverse charge, b2b
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,7 @@ W System EU VAT Check for WooCommerce adds an "EU VAT number" field to the WooCo
 * **Country check:** the VAT number prefix must match the billing country.
 * **Configurable** behaviour for invalid numbers and for when VIES is down.
 * **No locked features:** every feature works without an account or API key. The free tier of the external W System API allows 20 checks per day per server IP address, and results are cached for 24 hours per number. An optional API key only raises that external service quota.
+* **Works with the block-based Checkout** (the default for new WooCommerce stores) and the classic shortcode checkout.
 * HPOS (custom order tables) compatible.
 
 Settings: WooCommerce > Settings > Tax > EU VAT validator.
@@ -60,14 +61,21 @@ You choose: charge VAT, apply reverse charge and verify later, or block checkout
 
 = Does it work with the block-based Checkout? =
 
-Version 1.0 supports the classic (shortcode) checkout. Block checkout support is planned.
+Yes, since version 1.1. The VAT number field appears in the address form of the block Checkout, the totals update without VAT as soon as a valid cross-border number is entered, and invalid or mismatched numbers stop the order with a clear message. The classic (shortcode) checkout keeps working as before. In the block Checkout the field shows in the shipping address too when "use same address for billing" is ticked; the billing value is the one that is checked.
 
 == Changelog ==
+
+= 1.1.0 =
+* New: block-based Checkout support (WooCommerce Store API additional checkout field). Reverse charge, validation and order meta work the same as in the classic checkout.
+* Declares compatibility with the Cart and Checkout blocks.
 
 = 1.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Adds support for the block-based Checkout.
 
 = 1.0.0 =
 Initial release.

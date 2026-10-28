@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Checkout integration (classic checkout).
+ * Checkout integration (classic checkout; block checkout is in WSEVV_Blocks).
  */
 class WSEVV_Checkout {
 
@@ -147,7 +147,16 @@ class WSEVV_Checkout {
 		if ( '' === trim( $vat ) ) {
 			return;
 		}
-		$d = self::decide( $vat, $order->get_billing_country() );
+		self::write_meta( $order, self::decide( $vat, $order->get_billing_country() ) );
+	}
+
+	/**
+	 * Write the decision to the order meta (shared by classic and block checkout).
+	 *
+	 * @param WC_Order $order Order.
+	 * @param array    $d     Result of decide().
+	 */
+	public static function write_meta( $order, $d ) {
 		$r = $d['result'];
 		$order->update_meta_data( '_wsevv_vat_number', $d['vat'] );
 		$order->update_meta_data( '_wsevv_status', isset( $r['status'] ) ? $r['status'] : '' );
