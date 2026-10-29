@@ -64,7 +64,11 @@ class WSEVV_Settings {
 			array(
 				'title' => __( 'W System EU VAT Check for WooCommerce', 'w-system-eu-vat-check' ),
 				'type'  => 'title',
-				'desc'  => __( 'VAT numbers are checked against the official EU VIES service through the W System API. Every feature of this plugin works without an API key: the free tier of the W System API allows 20 checks per day per server IP address, and results are cached for 24 hours. An API key only raises that external service quota.', 'w-system-eu-vat-check' ),
+				'desc'  => __( 'VAT numbers are checked against the official EU VIES service through the W System API. Every feature of this plugin works without an API key: the free tier of the W System API allows 20 checks per day per server IP address, and results are cached for 24 hours. An API key only raises that external service quota.', 'w-system-eu-vat-check' ) . ' ' . sprintf(
+					/* translators: %s: URL of the free API key form. */
+					__( 'Need more than 20 checks a day? <a href="%s" target="_blank" rel="noopener">Get a free API key</a> (500 units a month, email only, no card) and paste it below.', 'w-system-eu-vat-check' ),
+					esc_url( 'https://api.wsystem.dev/account/free-key?ref=woo-plugin' )
+				),
 				'id'    => 'wsevv_title',
 			),
 			array(
@@ -72,6 +76,11 @@ class WSEVV_Settings {
 				'id'       => 'wsevv_api_key',
 				'type'     => 'password',
 				'desc_tip' => __( 'Only needed for more than 20 checks per day. Sent to api.wsystem.dev as the X-API-Key header. Leave empty to use the free tier; no plugin feature depends on it.', 'w-system-eu-vat-check' ),
+				'desc'     => sprintf(
+					/* translators: %s: URL of the free API key form. */
+					__( 'Optional. <a href="%s" target="_blank" rel="noopener">Get a free API key</a>: 500 units a month, no card.', 'w-system-eu-vat-check' ),
+					esc_url( 'https://api.wsystem.dev/account/free-key?ref=woo-plugin' )
+				),
 			),
 			array(
 				'title'    => __( 'Your EU VAT number', 'w-system-eu-vat-check' ),

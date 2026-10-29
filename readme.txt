@@ -4,7 +4,7 @@ Tags: vat, vies, eu vat, reverse charge, b2b
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,7 +49,7 @@ The API forwards the VAT number (and requester VAT number) to the European Commi
 
 = Do I need an account or API key? =
 
-No. All plugin features work without one. The W System API free tier allows 20 checks per day per server IP address (results are cached for 24 hours). If you need more checks per day, an API key for higher volume can be entered in the settings; see https://wsystem.dev/#pricing.
+No. All plugin features work without one. The W System API free tier allows 20 checks per day per server IP address (results are cached for 24 hours). If you need more checks per day, get a free API key with 500 units a month (email only, no card) at https://api.wsystem.dev/account/free-key?ref=woo-plugin and paste it into the settings. Paid plans for higher volume: https://wsystem.dev/pricing.
 
 = What happens when the daily free quota is used up? =
 
@@ -71,6 +71,9 @@ Yes, since version 1.1. The VAT number field appears in the address form of the 
 
 == Changelog ==
 
+= 1.1.1 =
+* Settings and readme link to the free API key form (500 units a month, no card) for stores that need more than 20 checks a day. No change to how VAT numbers are checked.
+
 = 1.1.0 =
 * New: block-based Checkout support (WooCommerce Store API additional checkout field). Reverse charge, validation and order meta work the same as in the classic checkout.
 * Declares compatibility with the Cart and Checkout blocks.
@@ -79,6 +82,9 @@ Yes, since version 1.1. The VAT number field appears in the address form of the 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Settings now link to a free API key for more than 20 checks a day.
 
 = 1.1.0 =
 Adds support for the block-based Checkout.

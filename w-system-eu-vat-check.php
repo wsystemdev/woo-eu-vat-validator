@@ -3,7 +3,7 @@
  * Plugin Name:       W System EU VAT Check for WooCommerce
  * Plugin URI:        https://github.com/wsystemdev/woo-eu-vat-validator
  * Description:       Validates EU VAT numbers at WooCommerce checkout against the official VIES service and applies B2B reverse charge (VAT exemption) for valid cross-border EU customers. Stores the VIES consultation number on the order.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            W System
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WSEVV_VERSION', '1.1.0' );
+define( 'WSEVV_VERSION', '1.1.1' );
 define( 'WSEVV_FILE', __FILE__ );
 define( 'WSEVV_DIR', plugin_dir_path( __FILE__ ) );
 
